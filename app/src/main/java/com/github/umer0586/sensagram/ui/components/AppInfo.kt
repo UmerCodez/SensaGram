@@ -1,5 +1,5 @@
 /*
- *     This file is a part of SensaGram (https://github.com/umer0586/SensaGram)
+ *     This file is a part of SensaGram (https://www.github.com/UmerCodez/SensaGram)
  *     Copyright (C) 2024 Umer Farooq (umerfarooq2383@gmail.com)
  *
  *     SensaGram is free software: you can redistribute it and/or modify
@@ -56,7 +56,7 @@ fun AppInfo(
     versionName: String,
     developer: String = "Umer Farooq",
     developerEmail: String = "umerfarooq2383@gmail.com",
-    sourceCodeLink : String = "https://github.com/umer0586/SensaGram",
+    sourceCodeLink : String = "https://www.github.com/UmerCodez/SensaGram",
     license : String = "GPL-3.0",
     onEmailClick: ((String) -> Unit)? = null,
     onSourceCodeClick: ((String) -> Unit)? = null
