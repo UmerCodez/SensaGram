@@ -3,12 +3,12 @@
 # SensaGram
 
  
-<img src="https://github.com/umer0586/SensaGram/blob/main/app/src/main/ic_launcher-playstore.png" width="200">
+<img src="https://github.com/UmerCodez/SensaGram/blob/main/app/src/main/ic_launcher-playstore.png" width="200">
 
-[<img src="https://github.com/user-attachments/assets/0f628053-199f-4587-a5b2-034cf027fb99" height="100">](https://github.com/umer0586/SensaGram/releases) [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="100">](https://f-droid.org/packages/com.github.umer0586.sensagram/)
+[<img src="https://github.com/user-attachments/assets/0f628053-199f-4587-a5b2-034cf027fb99" height="100">](https://github.com/UmerCodez/SensaGram/releases) [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="100">](https://f-droid.org/packages/com.github.umer0586.sensagram/)
 
-![GitHub License](https://img.shields.io/github/license/umer0586/SensaGram?style=for-the-badge) ![Android Badge](https://img.shields.io/badge/Android-5.0+-34A853?logo=android&logoColor=fff&style=for-the-badge) ![Jetpack Compose Badge](https://img.shields.io/badge/Jetpack%20Compose-4285F4?logo=jetpackcompose&logoColor=fff&style=for-the-badge) ![Static Badge](https://img.shields.io/badge/protocol-UDP-teal?style=for-the-badge) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/umer0586/SensaGram/build.yml?style=for-the-badge&logo=appveyor)
- ![GitHub Release](https://img.shields.io/github/v/release/umer0586/SensaGram?include_prereleases&style=for-the-badge)
+![GitHub License](https://img.shields.io/github/license/UmerCodez/SensaGram?style=for-the-badge) ![Android Badge](https://img.shields.io/badge/Android-5.0+-34A853?logo=android&logoColor=fff&style=for-the-badge) ![Jetpack Compose Badge](https://img.shields.io/badge/Jetpack%20Compose-4285F4?logo=jetpackcompose&logoColor=fff&style=for-the-badge) ![Static Badge](https://img.shields.io/badge/protocol-UDP-teal?style=for-the-badge) ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/UmerCodez/SensaGram/build.yml?style=for-the-badge&logo=appveyor)
+ ![GitHub Release](https://img.shields.io/github/v/release/UmerCodez/SensaGram?include_prereleases&style=for-the-badge)
 
 ### Stream real-time Android sensor data using [UDP (User Datagram Protocol)](https://en.wikipedia.org/wiki/User_Datagram_Protocol), a connectionless transport layer protocol designed for low-latency, fast data transmission without establishing a persistent connection.
 
@@ -57,9 +57,9 @@ Use `JSON` parser to get these individual values.
 The following Python code allows you to receive sensor data from the Sensagram app. The server will listen on all available network interfaces, which is indicated by the address `0.0.0.0`. To set up the server, follow these steps:
 
 #### 1. Clone the Gist repository:
-see : [udpserver.py](https://gist.github.com/umer0586/1331ac524c525bae7b1c94667ed571de)
+see : [udpserver.py](https://gist.github.com/UmerCodez/1331ac524c525bae7b1c94667ed571de)
 ```bash
-git clone https://gist.github.com/umer0586/1331ac524c525bae7b1c94667ed571de example
+git clone https://gist.github.com/UmerCodez/1331ac524c525bae7b1c94667ed571de example
 cd example
 ```
 
@@ -103,13 +103,13 @@ server.setDataCallBack(onData)
 server.start()
 
 ```
-for GPS data description see [GPS Data Description](https://github.com/umer0586/SensaGram/wiki/GPS-Data-Description)
+for GPS data description see [GPS Data Description](https://github.com/UmerCodez/SensaGram/wiki/GPS-Data-Description)
 
 #### 3 Run the script on the machine you want to receive data on:
 ```bash
 python server.py
 ```
-⚠️ Make sure your firewall settings are not blocking incoming data. see issue [Firewall caused errors](https://github.com/umer0586/SensaGram/issues/6)  
+⚠️ Make sure your firewall settings are not blocking incoming data. see issue [Firewall caused errors](https://github.com/UmerCodez/SensaGram/issues/6)  
 
 #### 4. Configure the Sensagram app:
 In the app's settings, enter the IP address of the machine running this script. To find your machines's IP address:
