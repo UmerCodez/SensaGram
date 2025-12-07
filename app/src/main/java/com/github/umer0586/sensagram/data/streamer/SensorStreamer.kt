@@ -30,6 +30,7 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
+import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
 import com.github.umer0586.sensagram.data.model.DeviceSensor
@@ -267,5 +268,18 @@ class SensorStreamer(
         }
 
         return JsonUtil.toJSON(location)
+    }
+
+    // See issue  : https://github.com/UmerCodez/SensaGram/issues/9
+    // solution : https://stackoverflow.com/questions/64638260/android-locationlistener-abstractmethoderror-on-onstatuschanged-and-onproviderd
+    @Deprecated("Deprecated in Java")
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+        // super.onStatusChanged(provider, status, extras)
+    }
+
+    override fun onProviderEnabled(provider: String) {
+    }
+
+    override fun onProviderDisabled(provider: String) {
     }
 }
