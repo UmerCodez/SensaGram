@@ -37,6 +37,7 @@ import com.github.umer0586.sensagram.data.streamer.SensorStreamer
 import com.github.umer0586.sensagram.data.streamer.StreamingInfo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
@@ -48,6 +49,7 @@ class SensorStreamingService : Service() {
 
     private var sensorStreamer: SensorStreamer? = null
     private val scope = CoroutineScope(Dispatchers.Default + SupervisorJob())
+    private var sensorsSelectionJob: Job? = null
 
     private var streamingStartedCallBack: ((StreamingInfo) -> Unit)? = null
     private var streamingStoppedCallBack: (() -> Unit)? = null
@@ -119,19 +121,28 @@ class SensorStreamingService : Service() {
             sensors = settings.selectedSensors.toSensors(applicationContext)
         )
 
-        scope.launch {
 
-            settingsRepository.setting.collect{ settings ->
-                sensorStreamer?.changeSensors(settings.selectedSensors.toSensors(applicationContext))
+        sensorsSelectionJob?.cancel()
+        sensorsSelectionJob = scope.launch {
+
+            launch {
+
+                settingsRepository.setting.collect { settings ->
+                    Log.d(TAG, "selected sensors ${settings.selectedSensors}")
+                    sensorStreamer?.changeSensors(
+                        settings.selectedSensors.toSensors(
+                            applicationContext
+                        )
+                    )
+                }
             }
-        }
 
-        scope.launch {
-            settingsRepository.setting.collect{ setting ->
-                if(setting.gpsStreaming)
-                    sensorStreamer?.enableGPSStreaming()
-                else
-                    sensorStreamer?.disableGPSStreaming()
+            launch {
+                settingsRepository.setting.collect { setting ->
+                    Log.d(TAG, "GPS option enabled ${settings.gpsStreaming}")
+                    if (setting.gpsStreaming) sensorStreamer?.enableGPSStreaming()
+                    else sensorStreamer?.disableGPSStreaming()
+                }
             }
         }
 
